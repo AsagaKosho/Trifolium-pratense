@@ -16,15 +16,27 @@ for i in range(0, 8):
     print(str(group) + '-' + str(team) + ' PlantA 個体数' + str(len(kabuA['X'])))
 
     Exception_10_10 = 0
+    Population_10_10 = []
+    Population_10_10.append(2500)
     for Xdata, Ydata in zip(kabuA['X'], kabuA['Y']):
         for i in range(0, 50):
             if Xdata == i * 10:
                 Exception_10_10 += 1
-                for i in range(0, 50):
-                    if Ydata == i * 10:
+                for j in range(0, 50):
+                    if Ydata == j * 10:
                         Exception_10_10 -= 1
             if Ydata == i * 10:
                 Exception_10_10 += 1
+            if i * 10 < Xdata < (i + 1) * 10:
+                for k in range(0, 50):
+                    if k * 10 < Ydata < (k + 1) * 10:
+                        # 区画ごとの個体数を入れる
+                        print(i)
+                        print(k)
+                        Population_10_10.insert(50 * i + k, 1)
+                        # ここ直せ
+
+
     print(Exception_10_10)
 
 
